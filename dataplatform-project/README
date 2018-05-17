@@ -1,0 +1,1 @@
+mvn exec:java -Dexample.config="\${project.basedir}/conf/jgex-hbase-solr-http.properties"
