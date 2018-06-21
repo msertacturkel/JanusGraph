@@ -26,6 +26,10 @@ import org.janusgraph.core.attribute.Geoshape;
 import org.janusgraph.core.schema.JanusGraphManagement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import java.net.URL;
 
 public class JanusGraphApp extends GraphApp {
     private static final Logger LOGGER = LoggerFactory.getLogger(JanusGraphApp.class);
@@ -232,7 +236,10 @@ public class JanusGraphApp extends GraphApp {
 
     public static void main(String[] args) throws Exception {
         final String fileName = (args != null && args.length > 0) ? args[0] : null;
-        final boolean drop = (args != null && args.length > 1) ? "drop".equalsIgnoreCase(args[1]) : false;
+
+        //String fileName = JanusGraphApp.class.getClassLoader().getResource("jgex-hbase-solr-http.properties").getPath();
+
+       final boolean drop = (args != null && args.length > 1) ? "drop".equalsIgnoreCase(args[1]) : false;
         final JanusGraphApp app = new JanusGraphApp(fileName);
         if (drop) {
             app.openGraph();

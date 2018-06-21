@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.13.RELEASE</version>
+		<version>2.0.2.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -23,9 +23,12 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 
-		<dataplatform.main.class>com.ets.dataplatform.init.JanusGraphApp</dataplatform.main.class>
+		<!--<dataplatform.main.class>com.ets.dataplatform.init.JanusGraphApp</dataplatform.main.class>-->
+		<dataplatform.main.class>com.ets.dataplatform.init.RemoteGraphApp</dataplatform.main.class>
 		<!--<example.config>${project.basedir}/conf/jgex-hbase-solr-cloud.properties</example.config>-->
-		<dataplatform.config>${project.basedir}/conf/jgex-inmemory.properties</dataplatform.config>
+		<!--<dataplatform.config>${project.basedir}/conf/jgex-inmemory.properties</dataplatform.config>-->
+		<dataplatform.config>/Users/sertac.turkel/Desktop/DataPlatform/ProjeDenemeleri/git/janusGraph-rest/dataplatform-project/conf/jgex-remote.properties</dataplatform.config>
+
 		<logback.config>${project.basedir}/conf/logback.xml</logback.config>
 	</properties>
 
@@ -84,6 +87,26 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tinkerpop</groupId>
+			<artifactId>gremlin-driver</artifactId>
+			<version>3.3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tinkerpop</groupId>
+			<artifactId>gremlin-server</artifactId>
+			<version>3.3.3</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
